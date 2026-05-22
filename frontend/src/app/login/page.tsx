@@ -84,6 +84,7 @@ export default function LoginPage() {
           )}
 
           <AnimatedButton
+            type="submit"
             disabled={loading}
             className="w-full"
           >

@@ -9,6 +9,7 @@ interface AnimatedButtonProps {
   className?: string;
   variant?: "primary" | "secondary" | "ghost";
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function AnimatedButton({
@@ -17,6 +18,7 @@ export default function AnimatedButton({
   className = "",
   variant = "primary",
   disabled = false,
+  type = "button",
 }: AnimatedButtonProps) {
   const baseStyles: Record<string, string> = {
     primary:
@@ -29,6 +31,7 @@ export default function AnimatedButton({
 
   return (
     <motion.button
+      type={type}
       className={`${baseStyles[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
       whileHover={disabled ? undefined : { scale: 1.05 }}
       whileTap={disabled ? undefined : { scale: 0.95 }}

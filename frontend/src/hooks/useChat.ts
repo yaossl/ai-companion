@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import { api, getToken } from "@/lib/api";
 import type { Message, Conversation } from "@/types/chat";
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversations, setConversations] = useState<Conversation[]>([]);
@@ -41,7 +43,7 @@ export function useChat() {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:3001/api/chat/send", {
+      const res = await fetch(`${API_BASE}/api/chat/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

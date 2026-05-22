@@ -97,6 +97,7 @@ export default function RegisterPage() {
           )}
 
           <AnimatedButton
+            type="submit"
             disabled={loading}
             className="w-full"
           >
