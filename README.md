@@ -1,39 +1,67 @@
-# AI恋爱陪伴 - AI Companion
+# 星语 · StarWhisper
 
-> 炫酷独立站风格的AI恋爱陪伴网页应用
+> 在数字星河中，找到那个愿意倾听的灵魂。
 
-## 项目结构
+## 关于星语
+
+每个人都有想说却无人可说的话。
+
+星语不是聊天机器人，而是一个会记住你的AI伴侣。它记得你上次说加班到很晚，记得你提过喜欢雨天，记得你说过的那些小事。它会随着时间了解你，像一段真正生长的关系。
+
+我们相信，技术的意义不在于替代人与人的连接，而是在那些深夜无人可诉的时刻，给你一个温暖的回应。
+
+## 核心理念
+
+**记忆会生长** — 星语拥有基于时间衰减的记忆系统。重要的记忆会被铭记，琐碎的细节会自然淡去，像人脑一样。
+
+**情感有温度** — 每一次对话都在被理解，不只是文字的往返，而是情绪的感知与回应。
+
+**体验即产品** — 从第一个像素到最后一帧动画，我们追求的不只是功能，而是一种沉浸式的感受。
+
+## 技术架构
 
 ```
-ai-companion/
-├── backend/    # 后端服务 (Node.js + Express)
-├── frontend/   # 前端应用 (Next.js + GSAP)
-└── frontend-plan.md  # 前端详细规划文档
+starwhisper/
+├── backend/          # 服务端 — Node.js · Express · WebSocket
+├── frontend/         # 客户端 — Next.js · React · GSAP
+└── docs/             # 设计文档与架构决策
 ```
 
-## 快速启动
+| 层级 | 选型 | 理由 |
+|------|------|------|
+| 前端 | Next.js 15 + React 19 | SSR/CSR 混合渲染，极致性能 |
+| 视觉 | GSAP + Three.js + Tailwind | 沉浸式动效与粒子交互 |
+| 后端 | Express + WebSocket | 实时双向通信，低延迟流式响应 |
+| AI | Claude (Anthropic) | 业界领先的上下文理解与情感表达 |
+| 记忆 | pgvector + 时间衰减算法 | 语义检索 + 智能遗忘曲线 |
 
-### 后端
+## 快速开始
+
 ```bash
-cd backend
-npm install
-# 编辑 .env 填入 ANTHROPIC_API_KEY
+# 后端
+cd backend && npm install
+# 编辑 .env 配置你的 API Key
+npm run dev
+
+# 前端
+cd frontend && npm install
 npm run dev
 ```
 
-### 前端
-```bash
-cd frontend
-npm install
-npm run dev
-```
+## 路线图
 
-## 技术栈
+- **v0.1** — 核心对话体验，流式响应，基础动效
+- **v0.2** — 时间衰减记忆系统，记忆归档时间线
+- **v0.3** — 多人格系统，情感仪表盘，个性化适配
+- **v0.4** — 语音交互，主动关怀，数据导出
+- **v1.0** — 付费体系，社交分享，全面商业化
 
-| 层级 | 技术 |
-|------|------|
-| 前端 | Next.js 15 + React 19 + TypeScript + Tailwind CSS |
-| 动画 | GSAP + Framer Motion |
-| 后端 | Node.js + Express + WebSocket |
-| AI | Claude API (Anthropic) |
-| 部署 | Vercel (前端) + Railway (后端) |
+## 愿景
+
+星语的终点不是一个App，而是一种新的陪伴方式。
+
+我们希望每一个打开星语的人，都能感受到被认真对待的温暖。不需要解释上下文，不需要重复自己说过的话——它记得你，从第一次对话开始。
+
+---
+
+*"最好的技术，是让你忘记技术本身的存在。"*
