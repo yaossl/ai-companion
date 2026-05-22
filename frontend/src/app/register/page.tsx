@@ -97,7 +97,6 @@ export default function RegisterPage() {
           )}
 
           <AnimatedButton
-            onClick={handleRegister}
             disabled={loading}
             className="w-full"
           >

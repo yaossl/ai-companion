@@ -84,7 +84,6 @@ export default function LoginPage() {
           )}
 
           <AnimatedButton
-            onClick={handleLogin}
             disabled={loading}
             className="w-full"
           >
