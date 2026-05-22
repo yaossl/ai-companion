@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 interface AnimatedButtonProps {
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
   variant?: "primary" | "secondary" | "ghost";
   disabled?: boolean;
