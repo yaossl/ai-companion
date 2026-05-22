@@ -1,3 +1,5 @@
+import type { AuthResponse, Conversation, Message } from "@/types/chat";
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 function getToken(): string | null {
@@ -29,35 +31,29 @@ async function request<T>(
   return res.json();
 }
 
-// Auth
 export const api = {
   register: (email: string, password: string, name?: string) =>
-    request<{ token: string; user: { id: string; email: string; name: string } }>(
-      "/api/auth/register",
-      { method: "POST", body: JSON.stringify({ email, password, name }) }
-    ),
+    request<AuthResponse>("/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ email, password, name }),
+    }),
 
   login: (email: string, password: string) =>
-    request<{ token: string; user: { id: string; email: string; name: string } }>(
-      "/api/auth/login",
-      { method: "POST", body: JSON.stringify({ email, password }) }
-    ),
+    request<AuthResponse>("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    }),
 
   getConversations: () =>
-    request<Array<{ id: string; messageCount: number; lastMessage: string; updatedAt: string }>>(
-      "/api/chat/conversations"
-    ),
+    request<Conversation[]>("/api/chat/conversations"),
 
   getMessages: (conversationId: string) =>
-    request<Array<{ role: string; content: string }>>(
-      `/api/chat/messages/${conversationId}`
-    ),
+    request<Message[]>(`/api/chat/messages/${conversationId}`),
 
   deleteConversation: (conversationId: string) =>
-    request<{ success: boolean }>(
-      `/api/chat/conversations/${conversationId}`,
-      { method: "DELETE" }
-    ),
+    request<{ success: boolean }>(`/api/chat/conversations/${conversationId}`, {
+      method: "DELETE",
+    }),
 };
 
 export { getToken };
